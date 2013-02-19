@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="zenburn.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<h1>How does it work?</h1>
+<p>We use grunt to make the build super simple.</p>
+<pre><code class="lang-sh"><span class="title">npm</span> install <span class="comment">#install dependencies</span>
+
+grunt <span class="comment">#default task is live-reload</span></code></pre>
+<p>Under the hood, grunt is doing a couple things. Firstly, it is initiating a live-reload session. This is a server that will notify the browser when changes are made.</p>
+<p>Secondly, it is creating a static server on port <code>9001</code>. We take advantage of <a href="http://www.senchalabs.org/connect/">Connect&#39;s</a> ability to add middleware so that the JS dependency we need in the markdown is completely transparent.</p>
+<p>Lastly, we use <a href="http://www.senchalabs.org/connect/">regarde</a> to watch for changes with the markdown content and then run a home-brewed version of <a href="https://github.com/stephenvisser/grunt-markdown">grunt-markdown</a> to build.</p>
+<h1>What can it do?</h1>
+<ul>
+<li>You can use Github-Flavoured Markdown (GFM). </li>
+<li>Highlight.js does the syntax-highlighting, just drop in the CSS that you want to use.</li>
+<li>Edit the template.html file to change the wrapper. The wrapper just needs to have the line <code>&lt;%=content%&gt;</code> somewhere in it. (Uses grunt-templating styles)</li>
+<li>Add html directly anywhere you want, just make sure that it is separated by a newlines so markdown can format everything correctly.</li>
+</ul>
+<p><strong>Enjoy...</strong></p>
+
+</body>
+</html>
